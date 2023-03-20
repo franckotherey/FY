@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sorry</title>
+    <style>
+      /* Estilo para el contenedor principal */
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+      
+
+      /* Estilo para el mensaje principal */
+      #mensaje-principal {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* Estilo para los botones */
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* Estilo para el botón 1 */
+      #boton1 {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* Estilo para el mensaje */
+      #mensaje {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+      #mensaje2 {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      /* Estilo para el mensaje cuando se presiona el botón 2 */
+      
+
+      #mensaje2.pulsado{
+        color: #28a745;
+      }
+
+      /* Estilo para el mensaje cuando se presiona el botón 1 */
+      #mensaje.mover {
+        color: #007bff;
+      }
+
+      /* Estilo para el contenedor de los botones */
+      #contenedor-botones {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      /* Estilo para los botones cuando se les pasa el cursor */
+      button:hover {
+        background-color: #0062cc;
+      }
+
+      /* Estilo para el botón 1 cuando se le pasa el cursor */
+      #boton1:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Estilo para la imagen */
+      #imagen {
+        display: none;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mensaje-principal">
+      <h1>
+        Lo siento, mi cerebro y yo tuvimos una discusión y él ganó😵‍💫. No volverá a pasar.
+      </h1>
+        <p><small>a menos que me lo pidas xd</small></p>
+      <h1>
+        aceptas mi pequenha disculpa?:
+      </h1>
+      </div>
+    <div id="contenedor-botones">
+      <button id="boton1">Nop</button>
+      <button id="boton2">Sep</button>
+    </div>
+    <div id="mensaje2"></div>
+    <div id="mensaje"></div>
+    <img id="imagen" src="{{ url_for('static', filename='smashspider.jpg') }}">
+    <script>
+      var boton1 = document.getElementById("boton1");
+      boton1.addEventListener("mouseover", function() {
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+        var buttonWidth = boton1.offsetWidth;
+        var buttonHeight = boton1.offsetHeight;
+        var newLeft = Math.floor(Math.random() * (windowWidth - buttonWidth));
+        var newTop = Math.floor(Math.random() * (windowHeight - buttonHeight));
+        boton1.style.left = newLeft + "px";
+        boton1.style.top = newTop + "px";
+      });
+
+
+
+      boton1.addEventListener("mousemove", function() {
+      var img = document.createElement("img");
+      img.src = "{{ url_for('static', filename='spidermini.jpg') }}";
+      img.style.position = "fixed";
+      img.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
+      img.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
+      document.body.appendChild(img);
+      });
+
+      var boton2 = document.getElementById("boton2");
+      var mensaje = document.getElementById("mensaje");
+      var imagen = document.getElementById("imagen");
+
+      boton2.addEventListener("click", function() {
+      mensaje.classList.add("pulsado");
+      imagen.style.display = "block";
+      document.getElementById("mensaje2").innerHTML = ':D'
+      document.getElementById("mensaje").innerHTML = 'Click 👉 <a href="https://www.youtube.com/watch?v=LP8npS76twY" target="_blank">here</a>';
+});
+
+      imagen.addEventListener("click", function() {
+        imagen.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
