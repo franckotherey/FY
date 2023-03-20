@@ -107,7 +107,7 @@
     </div>
     <div id="mensaje2"></div>
     <div id="mensaje"></div>
-    <img id="imagen" src="{{ url_for('static', filename='smashspider.jpg') }}">
+    <img id="imagen" src="static/smashspider.jpg">
     <script>
       var boton1 = document.getElementById("boton1");
       boton1.addEventListener("mouseover", function() {
@@ -125,7 +125,7 @@
 
       boton1.addEventListener("mousemove", function() {
       var img = document.createElement("img");
-      img.src = "{{ url_for('static', filename='spidermini.jpg') }}";
+      img.src = "https://tuusuario.github.io/tuproyecto/static/spidermini.jpg";
       img.style.position = "fixed";
       img.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
       img.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
